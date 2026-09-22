@@ -1,5 +1,181 @@
 {
-  "updatedAt": "2026-09-22T14:00:00Z",
-  "updatedBy": "setup",
-  "projects": []
+  "version": 1,
+  "updatedAt": "2026-09-22T15:00:00.000Z",
+  "updatedBy": "seed",
+  "projects": [
+    {
+      "id": "hl-th",
+      "name": "Herons Landing TH",
+      "client": "Herons Landing Partners",
+      "location": "Santa Rosa County, FL",
+      "type": "Townhome land development",
+      "phase": "Permitting",
+      "health": "Watch",
+      "pm": "Z. Taylor",
+      "kickoffDate": "2026-03-12",
+      "acres": 18.4,
+      "lots": 72,
+      "summary": "Townhome community with internal streets, stormwater ponds, and utility extensions. FDEP and county site-plan comments in cycle 2.",
+      "notes": "Coordinate pond outfall with adjacent wetland flags before resubmittal.",
+      "milestones": [
+        {
+          "id": "hl-m1",
+          "title": "County site plan resubmittal",
+          "owner": "Z. Taylor",
+          "dueDate": "2026-10-03",
+          "priority": "High",
+          "status": "In progress",
+          "notes": "Address drainage comments 4, 7, and 11."
+        },
+        {
+          "id": "hl-m2",
+          "title": "FDEP ERP completeness",
+          "owner": "A. Reyes",
+          "dueDate": "2026-10-17",
+          "priority": "Medium",
+          "status": "Not started",
+          "notes": "Need signed stormwater report."
+        },
+        {
+          "id": "hl-m3",
+          "title": "Utility coordination meeting",
+          "owner": "J. Patel",
+          "dueDate": "2026-09-25",
+          "priority": "High",
+          "status": "In progress",
+          "notes": "ECUA water/sewer capacity letter."
+        }
+      ],
+      "actions": [
+        {
+          "id": "hl-a1",
+          "title": "Revise pond 2 stage-storage",
+          "owner": "Z. Taylor",
+          "dueDate": "2026-09-24",
+          "priority": "High",
+          "status": "In progress",
+          "notes": "HydroCAD node P-2 weir length."
+        },
+        {
+          "id": "hl-a2",
+          "title": "Update typical TH lot grading",
+          "owner": "CAD team",
+          "dueDate": "2026-09-29",
+          "priority": "Medium",
+          "status": "Not started",
+          "notes": "Match 6-inch side-yard swales."
+        }
+      ]
+    },
+    {
+      "id": "br-run",
+      "name": "Benjamins Run",
+      "client": "Runside Development",
+      "location": "Escambia County, FL",
+      "type": "Single-family subdivision",
+      "phase": "Design",
+      "health": "On track",
+      "pm": "M. Nguyen",
+      "kickoffDate": "2026-06-02",
+      "acres": 42.1,
+      "lots": 96,
+      "summary": "Single-family lots with collector stub, lift station, and regional pond. Preliminary plat in CAD.",
+      "notes": "Survey control delivered. Mass grading in progress.",
+      "milestones": [
+        {
+          "id": "br-m1",
+          "title": "Preliminary plat package",
+          "owner": "M. Nguyen",
+          "dueDate": "2026-10-10",
+          "priority": "High",
+          "status": "In progress",
+          "notes": "Include lot table and ROW widths."
+        },
+        {
+          "id": "br-m2",
+          "title": "Lift station prelim layout",
+          "owner": "J. Patel",
+          "dueDate": "2026-10-21",
+          "priority": "Medium",
+          "status": "Not started",
+          "notes": "ECUA standard details."
+        }
+      ],
+      "actions": [
+        {
+          "id": "br-a1",
+          "title": "Finish existing-drainage exhibit",
+          "owner": "Z. Taylor",
+          "dueDate": "2026-09-26",
+          "priority": "High",
+          "status": "In progress",
+          "notes": "Offsite basin from LiDAR."
+        },
+        {
+          "id": "br-a2",
+          "title": "QA lot numbers vs survey",
+          "owner": "CAD team",
+          "dueDate": "2026-10-02",
+          "priority": "Low",
+          "status": "Not started",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": "cr-10mi",
+      "name": "Cedar Ridge 10 Mile Road",
+      "client": "Cedar Ridge Holdings",
+      "location": "10 Mile Road, Escambia County, FL",
+      "type": "Roadway / access improvements",
+      "phase": "Construction",
+      "health": "At risk",
+      "pm": "Z. Taylor",
+      "kickoffDate": "2025-11-18",
+      "acres": 6.2,
+      "lots": 0,
+      "summary": "Turn-lane and drainage improvements along 10 Mile Road serving Cedar Ridge. Contractor RFI on underdrain conflict.",
+      "notes": "As-built survey pending for west ditch. Utility relocate delayed.",
+      "milestones": [
+        {
+          "id": "cr-m1",
+          "title": "Respond to underdrain RFI",
+          "owner": "Z. Taylor",
+          "dueDate": "2026-09-23",
+          "priority": "High",
+          "status": "In progress",
+          "notes": "Conflict with existing 8-inch force main."
+        },
+        {
+          "id": "cr-m2",
+          "title": "County punchlist walk",
+          "owner": "Inspector",
+          "dueDate": "2026-10-08",
+          "priority": "Medium",
+          "status": "Not started",
+          "notes": "After mill/overlay."
+        }
+      ],
+      "actions": [
+        {
+          "id": "cr-a1",
+          "title": "Issue sketch for FM conflict",
+          "owner": "Z. Taylor",
+          "dueDate": "2026-09-22",
+          "priority": "High",
+          "status": "In progress",
+          "notes": "Immediate — field crew waiting."
+        },
+        {
+          "id": "cr-a2",
+          "title": "Update pay quantities",
+          "owner": "M. Nguyen",
+          "dueDate": "2026-09-30",
+          "priority": "Medium",
+          "status": "Not started",
+          "notes": "Undercut station 18+40."
+        }
+      ]
+    }
+  ]
 }

@@ -1,5 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Engineering Project Tracker</title></head>
-<body>Tracker app loads from this file. Full UI in commit after approval.</body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Engineering Project Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app">
+    <div class="brand">
+      <h1>Engineering Project Tracker</h1>
+      <span id="metaLine">Land development portfolio</span>
+    </div>
+    <nav>
+      <button type="button" id="navAll">All Projects</button>
+      <button type="button" id="navNeeds">Immediate Needs</button>
+      <button type="button" id="navNew" data-edit disabled>New Project</button>
+      <button type="button" id="btnSettings">Settings</button>
+      <button type="button" id="btnUnlock" class="gold">Unlock</button>
+      <button type="button" id="btnLockSave" class="primary hidden">Lock &amp; Save</button>
+      <span id="lockBadge" class="badge locked">Locked</span>
+    </nav>
+  </header>
+  <main>
+    <div id="metrics" class="metrics"></div>
+
+    <section id="viewAll">
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search name, client, location, PM…" style="max-width:280px" />
+        <select id="filterPhase"><option value="">All phases</option></select>
+        <select id="filterHealth"><option value="">All health</option></select>
+      </div>
+      <div id="cards" class="cards"></div>
+    </section>
+
+    <section id="viewNeeds" class="hidden">
+      <h2>Immediate Needs</h2>
+      <p class="muted">Open milestones and actions that are overdue, due within 7 days, or High priority.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Project</th><th>Type</th><th>Title</th><th>Owner</th><th>Due</th><th>Priority</th><th>Status</th><th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="needsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="viewProject" class="workspace hidden">
+      <button type="button" id="backAll">← All Projects</button>
+      <h2 id="wsTitle"></h2>
+      <div id="wsFields"></div>
+      <div class="section">
+        <h3>Milestones</h3>
+        <button type="button" id="addMs" data-edit disabled>Add milestone</button>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Title</th><th>Owner</th><th>Due</th><th>Priority</th><th>Status</th><th>Notes</th><th></th></tr></thead>
+            <tbody id="msBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Action items</h3>
+        <button type="button" id="addAc" data-edit disabled>Add action</button>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Title</th><th>Owner</th><th>Due</th><th>Priority</th><th>Status</th><th>Notes</th><th></th></tr></thead>
+            <tbody id="acBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="viewNew" class="hidden">
+      <h2>Project kickoff</h2>
+      <p class="muted">Create a workspace. Unlock first, then Lock &amp; Save to publish.</p>
+      <div class="grid-form">
+        <div class="field"><label>Project name</label><input id="npName" data-edit disabled /></div>
+        <div class="field"><label>Client</label><input id="npClient" data-edit disabled /></div>
+        <div class="field"><label>Location</label><input id="npLocation" data-edit disabled /></div>
+        <div class="field"><label>Type</label><input id="npType" data-edit disabled /></div>
+        <div class="field"><label>Phase</label><select id="npPhase" data-edit disabled></select></div>
+        <div class="field"><label>Health</label><select id="npHealth" data-edit disabled></select></div>
+        <div class="field"><label>PM</label><input id="npPm" data-edit disabled /></div>
+        <div class="field"><label>Kickoff date</label><input id="npKickoff" type="date" data-edit disabled /></div>
+        <div class="field"><label>Acres</label><input id="npAcres" type="number" step="0.1" data-edit disabled /></div>
+        <div class="field"><label>Lots</label><input id="npLots" type="number" data-edit disabled /></div>
+      </div>
+      <div class="field"><label>Summary</label><textarea id="npSummary" data-edit disabled></textarea></div>
+      <div class="field"><label>Notes</label><textarea id="npNotes" data-edit disabled></textarea></div>
+      <button type="button" class="primary" id="npSubmit" data-edit disabled>Create project</button>
+    </section>
+  </main>
+
+  <div id="pinModal" class="modal-bg">
+    <div class="modal">
+      <h3>Unlock editor</h3>
+      <p class="muted">Enter PIN 0000 to edit. Lock &amp; Save writes a GitHub commit and locks again.</p>
+      <input id="pinInput" type="password" inputmode="numeric" maxlength="8" />
+      <div class="row-actions" style="margin-top:12px">
+        <button type="button" class="primary" id="pinOk">Unlock</button>
+        <button type="button" id="pinCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="setModal" class="modal-bg">
+    <div class="modal">
+      <h3>Browser settings</h3>
+      <p class="muted">Name and token stay in this browser only. They are never written to the repo.</p>
+      <div class="field"><label>Editor name</label><input id="setName" /></div>
+      <div class="field"><label>GitHub token</label><input id="setToken" type="password" autocomplete="off" /></div>
+      <div class="field"><label>Owner</label><input id="setOwner" /></div>
+      <div class="field"><label>Repo</label><input id="setRepo" /></div>
+      <div class="row-actions">
+        <button type="button" class="primary" id="setSave">Save settings</button>
+        <button type="button" id="setCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
 </html>
